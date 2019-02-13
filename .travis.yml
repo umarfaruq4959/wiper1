@@ -1,27 +1,9 @@
-language: python
-python: 2.7
-sudo: false
-cache:
-  directories:
-  - eggs
-env:
-  - PLONE_VERSION=4.3
-  - PLONE_VERSION=4.3 TEST_EGGS=plone.app.contenttypes
-matrix:
-  fast_finish: true
-before_install:
-  # FIXME: I have no idea how and why six==1.11.0 is being installed
-  - pip uninstall -y six
-install:
-  - python bootstrap.py
-  - bin/buildout buildout:test-eggs=$TEST_EGGS annotate
-  - bin/buildout buildout:test-eggs=$TEST_EGGS
+language: c
+sudo: false # only for faster builds
 script:
-  - bin/code-analysis
-  - bin/test
+  - clang -coverage -O0 hello.c -o hello
+  - ./hello
+  - gcov hello.c
+
 after_success:
-  - bin/createcoverage --output-dir=htmlcov
-  - pip install --upgrade coveralls
-  - coveralls
-notifications:
-  irc: irc.freenode.org#plone-testing
+  - bash <(curl -s https://codecov.io/bash)
