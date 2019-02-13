@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+int main()
+{
+    uint8_t EN;
+    uint8_t WI;
+    while(1){
+    printf("Enter the Engine State: ");
+    scanf("%d",&EN);
+    if(EN==1){
+     printf("\nEnter the Wiper State: ");
+     scanf("%d",&WI);
+     while(WI!=1){
+        printf("\n\n***** Wiper is Off!!Please Turn it On *****\n\n");
+        printf("\nEnter the Wiper State: ");
+     scanf("%d",&WI);
+    }
+    Sensor();
+    }else
+    {
+        printf("\n\n***** Please Turn On the Engine *****\n\n ");
+    }
+    }
+return 0;
+}
+void Sensor(){
+     uint16_t SE;
+     uint8_t PWM;
+printf("\nEnter the Sensor Reading: ");
+scanf("%d",&SE);
+if(SE<100){
+    PWM=0;
+}else if(SE<=250){
+PWM=1;
+}else if(SE<=500){
+PWM=2;
+}else{
+PWM=3;}
+Wiper(PWM);
+}
+void Wiper(int a){
+
+switch(a){
+case 0:
+    {
+    printf("\n\nNo Wiper\n\n\n");
+    break;}
+case 1:
+    {
+    printf("\n\n25 percent of Wiper Speed\n\n\n");
+    break;}
+case 2:
+    {
+    printf("\n\n50 percent of Wiper Speed\n\n\n");
+    break;}
+case 3:
+    {
+    printf("\n\n75 percent of Wiper Speed\n\n\n");
+    break;}
+}
+
+}
