@@ -44,19 +44,19 @@ void Wiper(int a){
 switch(a){
 case 0:
     {
-    printf("\n\nNo Wiper\n\n\n");
+    printf("\nNo Wiper\n");
     break;}
 case 1:
     {
-    printf("\n\n25 percent of Wiper Speed\n\n\n");
+    printf("\n25 percent of Wiper Speed\n");
     break;}
 case 2:
     {
-    printf("\n\n50 percent of Wiper Speed\n\n\n");
+    printf("\n50 percent of Wiper Speed\n");
     break;}
 case 3:
     {
-    printf("\n\n75 percent of Wiper Speed\n\n\n");
+    printf("\n75 percent of Wiper Speed\n");
     break;}
 }
 
